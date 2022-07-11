@@ -11,4 +11,9 @@ admin.site.site_header = 'Film Site Admin'
 
 
 
+UserAdmin.fieldsets += (
+	"Optional Data", 
+		{"fields": ("films", ), }
+	),
+
 admin.site.register(User, UserAdmin)
