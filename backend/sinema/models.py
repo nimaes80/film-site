@@ -18,7 +18,7 @@ class Job(TimeStamp):
         ]
 
 
-class Agents(TimeStamp, SEO):
+class Agent(TimeStamp, SEO):
 	name = models.CharField(max_length=100, unique=True, db_index=True)
 	job = models.ManyToManyField(Job, related_name='agent_job')
 	slug = models.SlugField(max_length=100, unique=True, allow_unicode=True, db_index=True)
@@ -32,7 +32,7 @@ class Agents(TimeStamp, SEO):
             models.Index(fields=['name', 'slug' ]),
         ]
 
-class Actors(TimeStamp, SEO):
+class Actor(TimeStamp, SEO):
 	name = models.CharField(max_length=100, unique=True, db_index=True)
 	slug = models.SlugField(max_length=100, unique=True, allow_unicode=True, db_index=True)
 
@@ -96,7 +96,7 @@ class Category(TimeStamp, SEO):
 class Video(TimeStamp):
 	name = models.CharField(max_length=100, unique=True, db_index=True)
 	file = models.FileField(upload_to='private/sinema/video/')
-	sound_and_subtitle = models.ManyToManyField(SoundAndSubtitle, related_name='video_sound_and_subtitle')
+	sound_and_subtitle = models.ManyToManyField(SoundAndSubtitle, related_name='video_sound_and_subtitle', blank=True, default=None)
 
 
 	def __str__(self) -> str:
@@ -135,14 +135,14 @@ class Film(TimeStamp, SEO):
 	name = models.CharField(max_length=255, unique=True, db_index=True)
 	abstract = models.TextField()
 	image = models.ImageField(upload_to='public/sinema/images/%Y/%M')
-	publish = models.DateTimeField(default=now)
+	publish = models.DateField(default=now)
 	age = models.PositiveSmallIntegerField(default=10)
 	country = models.ForeignKey(Country, on_delete=models.PROTECT)
-	imdb_score = models.FloatField(default=5.0)
+	IMDB_score = models.FloatField(default=5.0)
 	season = models.ManyToManyField(Season, related_name='film_season')
 	categorys = models.ManyToManyField(Category, related_name='film_category')
-	agents = models.ManyToManyField(Agents, related_name='film_agent')
-	actors = models.ManyToManyField(Actors, related_name='film_actors')
+	agents = models.ManyToManyField(Agent, related_name='film_agent')
+	actors = models.ManyToManyField(Actor, related_name='film_actors')
 
 
 
