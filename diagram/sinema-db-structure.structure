@@ -1,0 +1,95 @@
+Table Film {
+  id int [pk]
+  name rchar
+  abstract textarea
+  image image
+  publish datetime
+  age int
+  country foringkey
+  imdb_score float
+  season many2many
+  categorys many2many
+  agents many2many
+  actors many2many
+}
+
+Table Video {
+  id int [pk]
+  name char
+  file file
+  sound_and_subtitle many2many
+  
+  
+}
+
+
+Table Category {
+  id int [pk]
+  name char
+  slug slug
+  parent self
+}
+
+Table Country {
+  id int [pk]
+  name char 
+  slug slug
+}
+
+
+
+Table SoundAndSubtitle {
+  id int [pk]
+  name char
+  sound_and_subtitle file
+  
+}
+
+
+Table Actors {
+  id int [pk]
+  name char
+  slug slug
+}
+
+
+Table Agents {
+  id int [pk]
+  name char
+  job foringkey
+  slug slug
+}
+
+
+Table Job {
+  id int [pk]
+  title char 
+}
+
+Table Season {
+  id int [pk]
+  name char
+  videos many2many
+}
+
+
+
+Ref: "Video"."sound_and_subtitle" < "SoundAndSubtitle"."id"
+
+
+Ref: "Film"."categorys" < "Category"."id"
+
+Ref: "Film"."country" < "Country"."id"
+
+Ref: "Category"."parent" < "Category"."id"
+
+Ref: "Film"."actors" < "Actors"."id"
+
+Ref: "Film"."agents" < "Agents"."id"
+
+Ref: "Agents"."job" < "Job"."id"
+
+Ref: "Film"."season" < "Season"."id"
+
+
+Ref: "Season"."videos" < "Video"."id"

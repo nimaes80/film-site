@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 	'django.contrib.sites',
 
 	'account.apps.AccountConfig',
+	'sinema.apps.SinemaConfig',
 	'meta',
 
 	'corsheaders',
