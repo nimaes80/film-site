@@ -1,0 +1,21 @@
+version: '3.8'
+
+
+services:
+
+  db:
+    image: postgres:alpine
+    restart: always
+    container_name: "film-site-db"
+    environment:
+      POSTGRES_PASSWORD : "example"
+      POSTGRES_USER : "example"
+      POSTGRES_DB : "example"
+      
+    volumes:
+      - ./db/pgdata:/var/lib/postgresql/data:rw
+      - ./db/pgconf:/etc/postgresql:rw
+      - ./db/pglog:/var/log/postgresql:rw
+      
+    ports:
+      - 5432:5432
