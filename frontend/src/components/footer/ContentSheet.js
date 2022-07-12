@@ -8,8 +8,8 @@ function ContentSheet(props) {
         {
             props.items && props.items.map((item, i) => (
                 <Grid item xs={12} sm={6} md={4} key={i}>
-                    <Divider width='75%' sx={{m:'auto'}} />
-                    <Typography variant="h6"> { item.title } </Typography>
+                    <Divider width='75%' sx={{mx:'auto', my:1}} />
+                    <Typography variant="h6" sx={{my:1}}> { item.title } </Typography>
                     <List className="footer-link-list" >
                         {
                             item.pages.map((page, j) => (

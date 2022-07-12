@@ -7,6 +7,7 @@
 	--scrollbar-foreground-color-hover: #a39b9b;
 	--direction: rtl;
 
+
 }
 
 * {
@@ -15,7 +16,10 @@
 	outline: 0;
 	font-family: Vazirmatn, Roboto !important;
 	text-decoration: none;
+	box-sizing: border-box;
+
 }
+
 
 
 body, html {
@@ -64,12 +68,14 @@ video.top-video {
 	background-size: contain !important;
 	user-select: text;
 	pointer-events: none;
-	z-index: 150;
 	filter: blur(8px);
 	-webkit-filter: blur(8px);
+	
 }
 
-
+.copyright {
+	color: var(--foreground-color) !important;
+}
 
 ul.nav-link-list {
 	display:inline-flex;
@@ -127,4 +133,52 @@ ul.footer-link-list li a {
 }
 ul.footer-link-list li a:hover {
 	color: var(--linker-color);
+}
+
+.icon-telegram, .icon-twitter, .icon-instagram {
+	transition: all 0.5s ease-in-out !important;
+}
+.icon-telegram:hover {
+	background-color: #229ED9 !important;
+}
+.icon-twitter:hover {
+	background-color: #1DA1F2 !important;
+
+}
+.icon-instagram:hover {
+	animation: instagram 2s;
+
+	background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+				radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+				radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+				radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+				radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+				radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+				radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+				linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%) !important;
+}
+
+@keyframes instagram {
+	0% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+	}
+	
+}
+
+
+.on-video-content {
+	position: absolute;
+	transform: translate( -50%, -50% );
+}
+
+
+.thumbnail {
+	width: 250px !important;
+	height: auto !important;
+	min-height: 150px !important;
+	max-height: 300px !important;
+
 }

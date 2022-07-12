@@ -1,3 +1,4 @@
+import OnVideoContent from '../components/home/OnVideoContent';
 import TopVideo from '../components/home/TopVideo';
 
 function Home() {
@@ -7,7 +8,7 @@ function Home() {
   return (
     <>
       <TopVideo type="video/mp4" src="/assets/test-video.mp4" />
-    
+      <OnVideoContent  />
     </>
   );
 };

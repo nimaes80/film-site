@@ -1,6 +1,7 @@
-import { Card, CardContent, CardHeader } from '@mui/material';
+import { Card, CardContent, CardHeader, Divider } from '@mui/material';
 import React from 'react';
 import ContentSheet from './ContentSheet';
+import Socials from './Socials';
 
 function MainFooter() {
 	const data = [
@@ -73,6 +74,8 @@ function MainFooter() {
 				<CardHeader title="FILOOP" className='text-center' />
 				<CardContent>
 					<ContentSheet items={data} />
+					<Divider width="50%" sx={{margin:'auto'}} />
+					<Socials />
 				</CardContent>
 			</Card>
 		</footer>
