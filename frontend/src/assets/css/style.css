@@ -1,0 +1,130 @@
+:root {
+	--background-color: #260e3f;
+	--foreground-color: #fff;
+	--linker-color: #14aae6;
+	--paper-color: #332641;
+	--scrollbar-foreground-color: #cabebe;
+	--scrollbar-foreground-color-hover: #a39b9b;
+	--direction: rtl;
+
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	font-family: Vazirmatn, Roboto !important;
+	text-decoration: none;
+}
+
+
+body, html {
+	width: 100%;
+	height: 100%;
+	background-color: var(--background-color) !important;
+	color: var(--foreground-color) !important;
+	direction: var(--direction);
+}
+
+
+::-webkit-scrollbar {
+	width: 8px;
+	border-radius: 50%;
+}
+  
+::-webkit-scrollbar-track {
+	background: var(--background-color);
+	transition: all 0.3s ease-in-out;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--scrollbar-foreground-color);
+	transition: all 0.3s ease-in-out;
+	border-radius: 50px;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+	background: var(--scrollbar-foreground-color-hover);
+}
+
+
+.center {
+	text-align: center;
+	justify-content: center;
+	justify-items: center;
+	justify-self: center;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+}
+.text-center {
+	text-align: center;
+}
+
+video.top-video {
+	background-size: contain !important;
+	user-select: text;
+	pointer-events: none;
+	z-index: 150;
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+}
+
+
+
+ul.nav-link-list {
+	display:inline-flex;
+	flex-direction: row;
+	text-align: center;
+	margin: auto;
+}
+ul.nav-link-list li {
+	margin-right: 40px;
+	width: fit-content !important;
+	padding: 0;
+	text-align: center;
+}
+ul.nav-link-list li a {
+	color: var(--foreground-color);
+	font-size: larger;
+	transition: all 0.4s ease;
+}
+ul.nav-link-list li a:hover{
+	color: var(--linker-color);
+	transform: translateY(-.2em) scale(1.1);
+}
+ul.nav-link-list li a.active {
+	color: var(--linker-color);
+}
+
+ul.drawer-link-list a {
+	transition: all 0.25s;
+}
+ul.drawer-link-list a:hover {
+	color: var(--linker-color);
+}
+ul.drawer-link-list a.active {
+	color: var(--linker-color);
+}
+
+
+.brand {
+	font-weight: bolder !important;
+	font-size: larger !important;
+}
+
+
+
+footer, header {
+	padding: 0 !important;
+	margin: 0 !important;
+	outline: 0 !important;
+}
+
+
+ul.footer-link-list li a {
+	color: var(--foreground-color);
+	transition: all 0.3s ease;
+}
+ul.footer-link-list li a:hover {
+	color: var(--linker-color);
+}

@@ -1,4 +1,5 @@
 from django.db import models
+from psycopg2 import Timestamp
 from meta.models import TimeStamp, TimeStamp, SEO
 from django.utils.timezone import now
 
@@ -96,8 +97,7 @@ class Category(TimeStamp, SEO):
 class Video(TimeStamp):
 	name = models.CharField(max_length=100, unique=True, db_index=True)
 	file = models.FileField(upload_to='private/sinema/video/')
-	sound_and_subtitle = models.ManyToManyField(SoundAndSubtitle, related_name='video_sound_and_subtitle', blank=True, default=None)
-
+	qulaity = models.PositiveSmallIntegerField(default=720)
 
 	def __str__(self) -> str:
 		return self.name
@@ -114,10 +114,17 @@ class Video(TimeStamp):
         ]
 
 
+class Part(Timestamp):
+	name = models.CharField(max_length=100, unique=True, db_index=True)
+	film = models.ManyToManyField(Video, related_name='part_videos', )
+	sound_and_subtitle = models.ManyToManyField(SoundAndSubtitle, related_name='video_sound_and_subtitle', blank=True, default=None)
+	
+
+
 
 class Season(TimeStamp):
 	name = models.CharField(max_length=100, unique=True, db_index=True)
-	videos = models.ManyToManyField(Video, related_name='season_video')
+	parts = models.ManyToManyField(Video, related_name='season_part')
 
 	def __str__(self) -> str:
 		return self.name
