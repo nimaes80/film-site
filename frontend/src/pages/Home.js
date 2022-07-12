@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <TopVideo type="video/mp4" src="/assets/test-video.mp4" />
-      <OnVideoContent  />
+      <OnVideoContent imgSrc="https://picsum.photos/200/300" title="احمد شیطان صفت"  />
     </>
   );
 };

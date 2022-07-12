@@ -8,12 +8,14 @@ function OnVideoContent(props) {
 
   return (
     <Box className="on-video-content center" sx={{
-        top:{xs:100, md:150, lg:200},
+        top:{xs:100, md:150, lg:250},
         right: { xs:"50%", md:'inherit'},
-        left: { md:100, lg:150 }
+        left: { md:0, }
     }}>
-        <img className='thumbnail' src="https://developers.google.com/static/search/docs/advanced/images/how-dynamic-rendering-works.png" alt="#" />
-        <Typography variant="h2" fontSize={35} fontWeight={800}> Hello World </Typography>
+        <Box sx={{display:{xs:'none', md:'block'}, marginTop:20}}>
+        <img title={props.title} className='thumbnail' src={props.imgSrc} alt={props.title} />
+        </Box>
+        <Typography variant="h2" fontSize={{xs:16, sm:18, md:20, lg:22, xl:25 }} fontWeight={600}> { props.title } </Typography>
     </Box>
   );
 };
