@@ -15,7 +15,6 @@ function Public() {
 					<Route path="/" index element={<Home />} />
 					
 					
-					
 					<Route path="*" element={<Page404NotFound />} />
 				</Routes>
 			</main>

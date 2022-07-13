@@ -69,8 +69,8 @@ function MainFooter() {
 	]
 	
 	return (
-		<footer>
-			<Card>
+		<footer >
+			<Card >
 				<CardHeader title="FILOOP" className='text-center' />
 				<CardContent>
 					<ContentSheet items={data} />
