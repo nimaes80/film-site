@@ -23,15 +23,13 @@
 }
 
 
-
-body, html {
+body {
 	width: 100%;
 	height: 100%;
 	background-color: var(--background-color) !important;
 	color: var(--foreground-color) !important;
 	direction: var(--direction);
 }
-
 
 ::-webkit-scrollbar {
 	width: 8px;
@@ -120,13 +118,7 @@ footer, header  {
 	outline: 0 !important;
 	display: block;
 	user-select: none;
-}
-
-footer {
-	position: relative;
-	top: -300px !important;
-	height: 0 !important;
-	margin: -100px 0 !important;
+	transition: all 1s ease-in-out;
 }
 
 
@@ -199,7 +191,7 @@ video.top-video {
 	filter: blur(8px);
 	-webkit-filter: blur(8px);
 	position: relative;
-	z-index: 0;
+	z-index: -1;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -207,7 +199,7 @@ video.top-video {
 }
 .on-video-content {
 	position: relative;
-	z-index: 1;
+	z-index: 0;
 	user-select: text;
 }
 .top-video-details *{

@@ -18,7 +18,15 @@ function OnVideoContent(props) {
 					md: -250,
 					lg: -400,
 					xl: -600,
-				}
+				},
+				mb:{
+					xs: -10,
+					sm: -12.5,
+					md: -25,
+					lg: -45,
+					xl:-70
+				},
+				height: 'fit-content',
 			}}>
 				<Container maxWidth={false}>
 						<Box sx={{display:{xs:'none', md:'block'}, mb:2.5}}>
@@ -34,7 +42,7 @@ function OnVideoContent(props) {
 							}
 
 							{
-							props.film.description && <Typography sx={{maxWidth:{lg:'50%'}}} variant="body" component="p"> { props.film.description } </Typography>
+							props.film.description && <Typography sx={{maxWidth:{lg:'50%'}}} variant="body" component="p" fontSize={{xs:12, sm:14, md:16,lg:18, xl:20 }}> { props.film.description } </Typography>
 							}
 
 							{
@@ -46,7 +54,10 @@ function OnVideoContent(props) {
 							}
 
 							{
-							props.film.age && <span className="dalton-badge center" > { props.film.age }+ </span>
+							props.film.age && <div style={{display:'flex'}}>
+								<span className="dalton-badge center" > { props.film.age }+ </span>
+								<p> مناسب برای افراد بزرگتر از { props.film.age } </p>
+							</div>
 							}
 						</Box>
 

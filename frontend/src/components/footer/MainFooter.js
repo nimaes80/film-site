@@ -70,7 +70,7 @@ function MainFooter() {
 	
 	return (
 		<footer >
-			<Card >
+			<Card sx={{mt:10, mb:0,}}>
 				<CardHeader title="FILOOP" className='text-center' />
 				<CardContent>
 					<ContentSheet items={data} />

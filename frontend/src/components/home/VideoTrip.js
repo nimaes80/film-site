@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function VideoTrip(props) {
   return (
     <>
-        <Box className="relative" sx={{top:{xs: -90, md: -240, lg: -390, xl: -590, },  }}>
+        <Box>
             <Container maxWidth={false}>
                 <Typography variant="h3" sx={{my:5}}  fontSize={25}> {props.title} </Typography>
                 <Grid container justifyContent="space-evenly" alignItems="flex-start" spacing={2} >
