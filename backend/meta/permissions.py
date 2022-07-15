@@ -1,8 +1,6 @@
 from rest_framework.permissions import SAFE_METHODS, BasePermission
 
 
-
-
 class IsSuperUserOr404Forbidden(BasePermission):
 
 	def has_permission(self, request, view):

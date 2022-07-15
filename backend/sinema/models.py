@@ -1,8 +1,6 @@
 from django.db import models
-from psycopg2 import Timestamp
-from meta.models import TimeStamp, TimeStamp, SEO
 from django.utils.timezone import now
-
+from meta.models import SEO, TimeStamp
 
 # Create your models here.
 
@@ -48,19 +46,6 @@ class Actor(TimeStamp, SEO):
 
 
 
-class SoundAndSubtitle(TimeStamp):
-	name = models.CharField(max_length=100, unique=True, db_index=True)
-	sound_and_subtitle = models.FileField(upload_to='private/sinema/SoundAndSubtitle/')
-
-	def __str__(self) -> str:
-		return self.name
-
-
-	class Meta:
-		indexes = [
-            models.Index(fields=['name', ]),
-        ]
-
 
 class Country(TimeStamp, SEO):
 	name = models.CharField(max_length=100, unique=True, db_index=True)
@@ -94,6 +79,21 @@ class Category(TimeStamp, SEO):
 
 
 
+class SoundAndSubtitle(TimeStamp):
+	name = models.CharField(max_length=100, unique=True, db_index=True)
+	sound_and_subtitle = models.FileField(upload_to='private/sinema/SoundAndSubtitle/')
+
+	def __str__(self) -> str:
+		return self.name
+
+
+	class Meta:
+		indexes = [
+            models.Index(fields=['name', ]),
+        ]
+
+
+
 class Video(TimeStamp):
 	name = models.CharField(max_length=100, unique=True, db_index=True)
 	file = models.FileField(upload_to='private/sinema/video/')
@@ -114,17 +114,27 @@ class Video(TimeStamp):
         ]
 
 
-class Part(Timestamp):
+
+class Part(TimeStamp):
 	name = models.CharField(max_length=100, unique=True, db_index=True)
 	film = models.ManyToManyField(Video, related_name='part_videos', )
-	sound_and_subtitle = models.ManyToManyField(SoundAndSubtitle, related_name='video_sound_and_subtitle', blank=True, default=None)
+	sound_and_subtitle = models.ManyToManyField(SoundAndSubtitle, related_name='part_sound_and_subtitle', blank=True, default=None)
 	
+
+	def __str__(self) -> str:
+		return self.name
+
+
+	class Meta:
+		indexes = [
+            models.Index(fields=['name', ]),
+        ]
 
 
 
 class Season(TimeStamp):
 	name = models.CharField(max_length=100, unique=True, db_index=True)
-	parts = models.ManyToManyField(Video, related_name='season_part')
+	parts = models.ManyToManyField(Part, related_name='season_part')
 
 	def __str__(self) -> str:
 		return self.name

@@ -9,7 +9,7 @@ import { UserContext } from '../../context/UserContex';
 function up(setColor, color) {
 	window.addEventListener('scroll', () => {
 		let y = 1 + (window.scrollY || window.pageYOffset) / 150
-		if (y <= 2.5 && color === 'transparent') {
+		if (y <= 1.3 && color === 'transparent') {
 			setColor(`transparent`);
 		}
 		else if (color !== ''){

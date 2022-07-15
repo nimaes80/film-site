@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from sinema.models import Job, Agent, Actor, SoundAndSubtitle, Country, Category, Video, Season, Film
+from sinema.models import (Actor, Agent, Category, Country, Film, Job, Season,
+                           SoundAndSubtitle, Video)
 
 # Register your models here.
 
