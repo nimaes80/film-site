@@ -8,13 +8,61 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> فعالسازی حساب کاربری </title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            text-align: justify;
+            justify-content: center;
+            justify-items: center;
+            justify-self: center;
+            align-self: center;
+            align-content: center;
+            align-items: center;
+            background-color: #260e3f;
+            color: #efefefee;
+            font-family: Arial, Helvetica, sans-serif;
+            word-spacing: 2px;
+            letter-spacing: 1px;
+        }
+        main {
+            padding-inline: 15%;
+            padding-top: 50px;
+        }
+        a {
+            color: wheat;
+            font-weight: bold;
+            font-size: large;
+            transition: all 0.4s ease-in-out;
+        }
+        a:hover {
+            color: white;
+            font-weight: bolder;
+            font-size: larger;
+            transform: scale(1.3);
+        }
+
+    </style>
 </head>
 <body>
 
     <main>
         <h1> فعالسازی حساب کاربری </h1>
+        <p> {{ user.username }} عزیز، درود؛ </p>
         <p> جهت فعالسازی حساب خود بر روی لینک زیر کلیک کنید. </p>
-        <a href="">  </a>
+        {% autoescape off %}
+            <a href="http://{{ domain }}/activation/?uidb64={{ uidb64 }}&token={{token}}"> فعالسازی </a>
+            
+            <p> در صورتی که لینک مربوطه کار نکرد بر روی لینک زیر کلیک کنید. </p>
+            
+            <a href="http://{{ domain }}/activation/?uidb64={{ uidb64 }}&token={{token}}"> http://{{ domain }}/?uidb64={{ uidb64 }}&token={{token}} </a>
+        {% endautoescape %}
 
     </main>
     

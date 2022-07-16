@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 function Page404NotFound() {
-  return (
-    <div>Page404NotFound</div>
-  )
+	return (
+		<div>Page404NotFound</div>
+	);
 }
 
-export default Page404NotFound
+export default Page404NotFound;

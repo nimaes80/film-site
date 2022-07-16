@@ -53,6 +53,7 @@ class UserViewSet(ModelViewSet):
 			user.save()
 			message = render_to_string('account/registration email.html', {
 				'user': user,
+				"domin": 'localhost:8000',
 				'uid':urlsafe_base64_encode(force_bytes(user.pk)),
 				'token':account_activation_token.make_token(user),
 			})
@@ -63,7 +64,8 @@ class UserViewSet(ModelViewSet):
 			)
 			email.send()
 			return Response('Vrification Email was sent to user', status=HTTP_201_CREATED)
-		return Response("There are already at least a user exist with these information", status=HTTP_406_NOT_ACCEPTABLE)
+		else:
+			return Response("There are already at least a user exist with these information", status=HTTP_406_NOT_ACCEPTABLE)
 
 
 	@action(methods=['GET',], detail=False)

@@ -1,25 +1,25 @@
-import { Autocomplete, Button, Card, CardActions, CardContent, CardHeader, Container, Dialog, DialogActions, DialogContent, DialogContentText, FormControl, TextField } from '@mui/material';
-import { createFilterOptions } from '@mui/material/Autocomplete';
-import React, { useState } from 'react';
-import countrys from './countrys.json';
+import { Autocomplete, Button, Card, CardActions, CardContent, CardHeader, Container, Dialog, DialogActions, DialogContent, DialogContentText, FormControl, TextField } from "@mui/material";
+import { createFilterOptions } from "@mui/material/Autocomplete";
+import React, { useState } from "react";
+import countrys from "./countrys.json";
 
 
 function Login() {
-	const [number , setNumber] = useState('')
-	const [country , setCountry] = useState({})
-	const [open , setOpen] = useState(false)
+	const [number , setNumber] = useState("");
+	const [country , setCountry] = useState({});
+	const [open , setOpen] = useState(false);
 
 	const handleNumber = (e) => {
-		const result = e.target.value.replace(/\D/g, '');
+		const result = e.target.value.replace(/\D/g, "");
 		setNumber(result);
-	}
+	};
 
 	const handleCountry = (e, newInputValue) => {
-			const i = countrys.findIndex((c)=> c.name === newInputValue)
+			const i = countrys.findIndex((c)=> c.name === newInputValue);
 			if (i !== -1) {
 				setCountry(countrys[i]);
 			}
-	}
+	};
 
 
 	const Submit = (e) => {
@@ -28,29 +28,29 @@ function Login() {
 			setOpen(!open);
 
 		} else {
-
+			alert("");
 		}
 
 
-	}
+	};
 
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-	}
+	};
 
 	const handleClose = (e) => {
 		e.preventDefault();
 		setOpen(!open);
-	}
+	};
 
 	
 	const filterOptions = createFilterOptions({
 		limit: 5,
-		matchFrom: 'any',
+		matchFrom: "any",
 		stringify: (option) => `${option.code}-${option.phone}-${option.name}`,
-	  });
+		});
 
 
 	return (
@@ -78,7 +78,7 @@ function Login() {
 								type="tel"
 								id="input-with-icon-textfield"
 								label="شماره تلفن همراه"
-								style={{width:"100%", direction:'ltr', textAlign:'left',}}
+								style={{width:"100%", direction:"ltr", textAlign:"left",}}
 								maxLength="10"
 								variant="outlined"
 								inputProps={{
@@ -110,7 +110,7 @@ function Login() {
 				
 				<DialogContent>
 						<DialogContentText> آیا شماره تلفن خود را تایید می‌کنید? </DialogContentText>
-						<DialogContentText style={{direction:'ltr', textAlign:'left'}}> ({country.phone}) { number } </DialogContentText>
+						<DialogContentText style={{direction:"ltr", textAlign:"left"}}> ({country.phone}) { number } </DialogContentText>
 						
 				</DialogContent>
 				
@@ -126,7 +126,7 @@ function Login() {
 
 		</Container>
 	);
-};
+}
 
 
 export default Login;

@@ -1,26 +1,26 @@
-import { Autocomplete, Button, Card, CardActions, CardContent, CardHeader, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, FormControl, TextField } from '@mui/material';
-import { createFilterOptions } from '@mui/material/Autocomplete';
-import React, { useState } from 'react';
-import countrys from './countrys.json';
-import requests from '../../utils/requests'
-import urls from '../../utils/urls';
+import { Autocomplete, Button, Card, CardActions, CardContent, CardHeader, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, FormControl, TextField } from "@mui/material";
+import { createFilterOptions } from "@mui/material/Autocomplete";
+import React, { useState } from "react";
+import countrys from "./countrys.json";
+import requests from "../../utils/requests";
+import urls from "../../utils/urls";
 
 
 
 function Register() {
-	const [phoneNumber , setphoneNumber] = useState('');
+	const [phoneNumber , setphoneNumber] = useState("");
 	const [phoneNumberError , setPhoneNumberError] = useState(false);
 	
 	const [country , setCountry] = useState(null);
 	const [countryError , setCountryError] = useState(false);
 	
-	const [username , setUsername] = useState('');
+	const [username , setUsername] = useState("");
 	const [usernameError , setUsernameError] = useState(false);
 	
-	const [password , setPassword] = useState('');
+	const [password , setPassword] = useState("");
 	const [passwordError , setPasswordError] = useState(false);
 	
-	const [email , setEmail] = useState('');
+	const [email , setEmail] = useState("");
 	const [emailError , setEmailError] = useState(false);
 	
 	const [open , setOpen] = useState(false);
@@ -29,16 +29,16 @@ function Register() {
 	
 	
 	const handlephoneNumber = (e) => {
-		const result = e.target.value.replace(/\D/g, '');
+		const result = e.target.value.replace(/\D/g, "");
 		setphoneNumber(result);
-	}
+	};
 
 	const handleCountry = (e, newInputValue) => {
-			const i = countrys.findIndex((c)=> c.name === newInputValue)
+			const i = countrys.findIndex((c)=> c.name === newInputValue);
 			if (i !== -1) {
 				setCountry(countrys[i]);
 			}
-	}
+	};
 
 
 	const Submit = (e) => {
@@ -56,41 +56,41 @@ function Register() {
 			phoneNumber.length === 11
 		) {
 			setOpen(true);
-		};
+		}
 
-	}
+	};
 
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		requests.post(urls.account, {
-			'username': username,
-			'password': password,
-			'email': email,
-			'country_code': country.phone,
-			'phone': phoneNumber,
+			"username": username,
+			"password": password,
+			"email": email,
+			"country_code": country.phone,
+			"phone": phoneNumber,
 		})
 		.then(response => {
-			console.log(response.status)
+			console.log(response.status);
 		})
 		.catch(error => {
-			console.log(error.status)
+			console.log(error.status);
 
 		});
 
-	}
+	};
 
 	const handleClose = (e) => {
 		e.preventDefault();
 		setOpen(!open);
-	}
+	};
 
 	
 	const filterOptions = createFilterOptions({
 		limit: 5,
-		matchFrom: 'any',
+		matchFrom: "any",
 		stringify: (option) => `${option.code}-${option.phone}-${option.name}`,
-	  });
+	});
 
 
 	return (
@@ -101,7 +101,7 @@ function Register() {
 					<CardHeader title="ثبت نام" className="text-center" />
 					<CardContent>
 						<Autocomplete
-                                name="country"
+								name="country"
 								onInputChange={handleCountry}
 								getOptionLabel={(option) => option.name}
 								filterOptions={filterOptions}
@@ -118,54 +118,54 @@ function Register() {
 								type="tel"
 								id="phone"
 								label="* شماره تلفن همراه"
-                                autoComplete="off"
-								style={{width:"100%", direction:'ltr', textAlign:'left', }}
+								autoComplete="off"
+								style={{width:"100%", direction:"ltr", textAlign:"left", }}
 								variant="outlined"
 								inputProps={{
 									maxLength:11
 								}}
 								onChange={handlephoneNumber}
 							/>
-                        
-                        <TextField
+						
+						<TextField
 								sx={{my:1}}
 								error={usernameError}
 								name="username"
 								type="text"
 								id="username"
 								label="* نام کاربری"
-                                autoComplete="off"
-								style={{width:"100%", direction:'ltr', textAlign:'left', }}
+								autoComplete="off"
+								style={{width:"100%", direction:"ltr", textAlign:"left", }}
 								variant="outlined"
-								onChange={(e)=> {setUsername(e.target.value)}}
+								onChange={(e)=> {setUsername(e.target.value);}}
 							/>
-                        
+						
 
-                        <TextField
+						<TextField
 								sx={{my:1}}
 								error={emailError}
 								name="email"
 								type="email"
 								id="email"
 								label="* ایمیل"
-                                autoComplete="off"
-								style={{width:"100%", direction:'ltr', textAlign:'left', }}
+								autoComplete="off"
+								style={{width:"100%", direction:"ltr", textAlign:"left", }}
 								variant="outlined"
-								onChange={(e)=> {setEmail(e.target.value)}}
+								onChange={(e)=> {setEmail(e.target.value);}}
 							/>
 
-                        
-                        <TextField
+						
+						<TextField
 								sx={{my:1}}
 								error={passwordError}
 								name="password"
 								type="password"
 								id="password"
 								label="* گذرواژه"
-                                autoComplete="off"
-								style={{width:"100%", direction:'ltr', textAlign:'left', }}
+								autoComplete="off"
+								style={{width:"100%", direction:"ltr", textAlign:"left", }}
 								variant="outlined"
-								onChange={(e)=> {setPassword(e.target.value)}}
+								onChange={(e)=> {setPassword(e.target.value);}}
 							/>
 
 
@@ -194,9 +194,9 @@ function Register() {
 				<DialogContent>
 						<Divider sx={{m:2}}/>
 						{
-							country  && <>
-								<DialogContentText style={{direction:'ltr', textAlign:'left'}}> ({country.phone}) { phoneNumber } </DialogContentText>
-								<DialogContentText style={{direction:'ltr', textAlign:'left'}}> {email} </DialogContentText>
+							country	&& <>
+								<DialogContentText style={{direction:"ltr", textAlign:"left"}}> ({country.phone}) { phoneNumber } </DialogContentText>
+								<DialogContentText style={{direction:"ltr", textAlign:"left"}}> {email} </DialogContentText>
 								</>
 						}
 						
@@ -214,7 +214,7 @@ function Register() {
 
 		</Container>
 	);
-};
+}
 
 
 export default Register;

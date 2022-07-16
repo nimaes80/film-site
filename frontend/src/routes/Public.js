@@ -1,11 +1,11 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import MainFooter from '../components/footer/MainFooter';
-import MainHeader from '../components/header/MainHeader';
-import Page404NotFound from '../pages/Page404NotFound';
-import Home from '../pages/public/Home';
-import Login from '../pages/public/Login';
-import Register from '../pages/public/Register';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import MainFooter from "../components/footer/MainFooter";
+import MainHeader from "../components/header/MainHeader";
+import Page404NotFound from "../pages/Page404NotFound";
+import Home from "../pages/public/Home";
+import Login from "../pages/public/Login";
+import Register from "../pages/public/Register";
 
 
 function Public() {
@@ -24,7 +24,7 @@ function Public() {
 			</main>
 			<MainFooter />
 		</>
-	)
+	);
 }
 
-export default Public
+export default Public;

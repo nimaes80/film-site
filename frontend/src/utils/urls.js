@@ -1,13 +1,13 @@
-'use-strict'
+"use-strict";
 
-const baseURL = 'http://localhost:8000/api/';
+const baseURL = "http://localhost:8000/api/";
 
 
 const urls = {
 	baseURL: baseURL,
 
 
-	account : 'account/users/',
+	account : "account/users/",
 
 
 };
