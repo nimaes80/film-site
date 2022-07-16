@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "react-snap": "^1.23.0"
+  },
+  "dependencies": {
+    "stylis-plugin-rtl": "2.0.1"
   }
 }
