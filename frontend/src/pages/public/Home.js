@@ -1,5 +1,5 @@
-import OnVideoContent from '../components/home/OnVideoContent';
-import VideoTrip from '../components/home/VideoTrip';
+import OnVideoContent from '../../components/home/OnVideoContent';
+import VideoTrip from '../../components/home/VideoTrip';
 
 function Home() {
 	const data = [

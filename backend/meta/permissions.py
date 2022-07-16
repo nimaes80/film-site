@@ -1,7 +1,7 @@
 from rest_framework.permissions import SAFE_METHODS, BasePermission
 
 
-class IsSuperUserOr404Forbidden(BasePermission):
+class IsSuperUserOr403Forbidden(BasePermission):
 
 	def has_permission(self, request, view):
 		return (self.request.user and self.request.user.is_superuser)
@@ -19,7 +19,7 @@ class IsSuperUserOrReadOnly(BasePermission):
 		return (self.request.user and self.request.user.is_superuser or self.request.method in SAFE_METHODS)
 
 
-class IsSafeOr404Forbidden(BasePermission):
+class IsSafeOr403Forbidden(BasePermission):
 
 	def has_permission(self, request, view):
 		return request.method in SAFE_METHODS

@@ -1,3 +1,4 @@
+'use-strict'
 import { CssBaseline } from '@mui/material';
 import { createBrowserHistory } from "history";
 import React from 'react';

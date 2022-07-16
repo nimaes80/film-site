@@ -33,7 +33,7 @@ function Profile(props) {
 	 		>
 				{
 					props.items && props.items.map((item, i) => (
-						<MenuItem key={i}>
+						<MenuItem key={i} onClick={handleClose}>
 							<Link style={{color:'white'}} to={item.url}> { item.name } </Link>
 						</MenuItem>
 					))

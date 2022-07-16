@@ -15,9 +15,10 @@ function OnVideoContent(props) {
 			<Box className="on-video-content" sx={{
 				top:{
 					xs:-100,
+					sm: -150,
 					md: -250,
-					lg: -400,
-					xl: -600,
+					lg: -450,
+					xl: -650,
 				},
 				mb:{
 					xs: -10,

@@ -227,3 +227,13 @@ video.top-video {
 	font-size: smaller;
 	font-weight: light;
 }
+
+
+img, video {
+	user-select: none !important;
+	pointer-events: none !important;
+}
+
+button, a {
+	cursor: pointer !important;
+}

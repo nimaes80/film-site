@@ -204,11 +204,11 @@ ADMINS = [
 REST_FRAMEWORK = {
 	'DEFAULT_AUTHENTICATION_CLASSES': [
 			'rest_framework.authentication.SessionAuthentication',
-				'rest_framework.authentication.BasicAuthentication',
+			'rest_framework.authentication.BasicAuthentication',
 	],
 
 	'DEFAULT_PERMISSION_CLASSES': [
-		'meta.permissions.IsSafeOr404Forbidden',
+		'meta.permissions.IsSafeOr403Forbidden',
 	],
 
 	'DEFAULT_FILTER_BACKENDS': [
@@ -235,7 +235,7 @@ REST_FRAMEWORK = {
 	'PAGE_SIZE': 100,
 
 
-	'DEFAULT_METADATA_CLASS': 'meta.metadata.Metadata',
+	# 'DEFAULT_METADATA_CLASS': 'meta.metadata.Metadata',
 
 	# 'DEFAULT_THROTTLE_CLASSES': [
 	# 	'rest_framework.throttling.AnonRateThrottle',
