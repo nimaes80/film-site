@@ -1,10 +1,10 @@
 import { Autocomplete, Button, Card, CardActions, CardContent, CardHeader, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, FormControl, TextField } from "@mui/material";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 import React, { useState } from "react";
-import countrys from "./countrys.json";
+import { Link } from "react-router-dom";
 import requests from "../../utils/requests";
 import urls from "../../utils/urls";
-
+import countrys from "./countrys.json";
 
 
 function Register() {
@@ -24,7 +24,7 @@ function Register() {
 	const [emailError , setEmailError] = useState(false);
 	
 	const [open , setOpen] = useState(false);
-
+	const [accountOpen, setAccountOpen] = useState(false);
 	
 	
 	
@@ -71,11 +71,10 @@ function Register() {
 			"phone": phoneNumber,
 		})
 		.then(response => {
-			console.log(response.status);
+			setAccountOpen(true);
 		})
 		.catch(error => {
-			console.log(error.status);
-
+			console.log(error.response.data);
 		});
 
 	};
@@ -206,6 +205,28 @@ function Register() {
 				<DialogActions>
 					<Button onClick={handleClose}> لغو </Button>
 					<Button onClick={handleSubmit}> تایید </Button>
+
+				</DialogActions>
+				
+			</Dialog>
+
+
+
+
+
+			<Dialog open={accountOpen} onClose={() => setAccountOpen(false)}>
+				<DialogTitle>
+					
+					اکانت با موفقیت ساخته شد.
+				</DialogTitle>
+				<DialogContent>
+						<Divider sx={{m:2}}/>
+						<DialogContentText 	> ایمیل فعال سازی برای شما ارسال شد. لطفا صندوق ورودی ایمیل خود را چک کنید در صورتی که ایمیلی دریافت نکردید صندوق اسپم را نیز چک کنید. </DialogContentText>
+				</DialogContent>
+				
+
+				<DialogActions>
+					<Button component={Link} to="/login" onClick={() => setAccountOpen(false)}> تایید </Button>
 
 				</DialogActions>
 				

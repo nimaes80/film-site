@@ -1,10 +1,28 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+    "name": "FILOOP",
+    "short_name": "FILOOP",
+    "theme_color": "#7820f5",
+    "background_color": "#7820f5",
+    "display": "standalone",
+    "orientation": "portrait",
+    "id": "/",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "./LOGO.png",
+            "type": "image/png",
+            "sizes": "any"
+        }
+    ],
+    "lang": "fa",
+    "dir": "rtl",
+    "description": "FILOOP serial sharing website",
+    "version": "1.",
+    "manifest_version": "1.0",
+    "permissions": [
+        "notifications",
+        "webRequest"
+    ],
+    "author": "FILOOP.ir"
 }

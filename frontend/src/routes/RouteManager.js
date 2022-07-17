@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import { UserContext } from "../context/UserContex";
-import Public from "./Public";
 import Private from "./Private";
+import Public from "./Public";
 
 function RouteManager() {
 	const userContext = useContext(UserContext);

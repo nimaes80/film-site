@@ -46,26 +46,23 @@ class UserViewSet(ModelViewSet):
 		data = request.data
 		serializer = self.get_serializer(data=data)
 		serializer.is_valid(raise_exception=True)
+		user = User(username=data['username'], email=data['email'], phone=data['phone'], country_code=data['country_code'], is_active=False)
+		user.set_password(data['password'])
+		user.save()
 
-		user = User.objects.filter(Q(username=data['username']) | Q(email=data['email']) | Q(phone=data['phone']) ).count()
-		if not user:
-			user = User(username=data['username'], email=data['email'], phone=data['phone'], country_code=data['country_code'], is_active=False)
-			user.save()
-			message = render_to_string('account/registration email.html', {
-				'user': user,
-				"domin": 'localhost:8000',
-				'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-				'token':account_activation_token.make_token(user),
-			})
-			email = EmailMessage(
-						'فعال سازی حساب کاربری',
-						message,
-						to=data['email']
-			)
-			email.send()
-			return Response('Vrification Email was sent to user', status=HTTP_201_CREATED)
-		else:
-			return Response("There are already at least a user exist with these information", status=HTTP_406_NOT_ACCEPTABLE)
+		message = render_to_string('account/registration_email.html', {
+			'user': user,
+			"domin": 'localhost:8000',
+			'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+			'token':account_activation_token.make_token(user),
+		})
+		email = EmailMessage(
+					'فعال سازی حساب کاربری',
+					message,
+					to=[data['email']]
+		)
+		email.send()
+		return Response('Vrification Email was sent to user', status=HTTP_201_CREATED)
 
 
 	@action(methods=['GET',], detail=False)
