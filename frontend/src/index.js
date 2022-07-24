@@ -6,7 +6,7 @@ import ReactDOM from "react-dom/client";
 import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import "./assets/css/style.css";
 import "./assets/js/app.js";
-import "./services/pwa_service";
+import "./services/pwa_service.js";
 
 const App = lazy(() => import("./App"));
 

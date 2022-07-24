@@ -13,3 +13,7 @@ Film &amp; Movie site written in Djnago &amp; React.
 - [ ] Add Serial Page
 - [ ] Add Admin Page
 - [X] Add Login/Logout
+
+
+### PRODUCTION TODO
+- [ ] Update Email in settings & templates
