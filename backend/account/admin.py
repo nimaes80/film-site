@@ -13,7 +13,7 @@ admin.site.site_header = 'Film Site Admin'
 
 UserAdmin.fieldsets += (
 	"Optional Data", 
-		{"fields": ("films", ), }
+		{"fields": ("films", "country_code", "phone", "is_phone_verified" ), }
 	),
 
 admin.site.register(User, UserAdmin)

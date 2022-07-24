@@ -57,11 +57,11 @@
         <p> {{ user.username }} عزیز، درود؛ </p>
         <p> جهت فعالسازی حساب خود بر روی لینک زیر کلیک کنید. </p>
         {% autoescape off %}
-            <a href="http://localhost:3000/activation/?uidb64={{ uidb64 }}&token={{token}}"> فعالسازی </a>
+            <a href="http://localhost:3000/activation/{{ uid }}.{{ token }}/"> فعالسازی </a>
             
             <p> در صورتی که لینک مربوطه کار نکرد بر روی لینک زیر کلیک کنید. </p>
             
-            <a href="http://localhost:3000/activation/?uidb64={{ uidb64 }}&token={{token}}"> http://localhost:3000/?uidb64={{ uidb64 }}&token={{token}} </a>
+            <a href="http://localhost:3000/activation/{{ uid }}.{{ token }}/"> http://localhost:3000/{{ uid }}.{{ token }}/ </a>
         {% endautoescape %}
 
     </main>
