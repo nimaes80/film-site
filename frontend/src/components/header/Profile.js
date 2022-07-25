@@ -1,7 +1,7 @@
 import { Avatar, IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/UserContex";
+import { UserContext } from "../../context/UserContext";
 
 function Profile(props) {
 	const userContext = useContext(UserContext);

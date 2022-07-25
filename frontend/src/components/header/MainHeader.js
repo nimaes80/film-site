@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Links from "./Links";
 import DrawerMenu from "./Menu";
 import Profile from "./Profile";
-import { UserContext } from "../../context/UserContex";
+import { UserContext } from "../../context/UserContext";
 
 function up(setColor, color) {
 	window.addEventListener("scroll", () => {

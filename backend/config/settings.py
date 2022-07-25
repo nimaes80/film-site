@@ -1,6 +1,6 @@
 from datetime import timedelta
 from pathlib import Path
-
+from .DEFAULT import DEFAULT_HEADERS
 import psycopg2.extensions
 from decouple import config
 
@@ -306,6 +306,6 @@ CSRF_TRUSTED_ORIGINS = (
 	'http://127.0.0.1:8000',
 )
 
-CORS_ALLOW_HEADERS = '*'
+CORS_ALLOW_HEADERS = DEFAULT_HEADERS
 
 CORS_ALLOW_ALL_ORIGINS = True

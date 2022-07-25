@@ -3,7 +3,8 @@ import React, { createContext, useReducer, useEffect } from "react";
 
 
 const nullData = {
-		isAuthenticated: false,
+	isAuthenticated: false,
+	user: {},
 };
 
 
